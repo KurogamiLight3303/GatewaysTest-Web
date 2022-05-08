@@ -1,0 +1,51 @@
+<ng-container *ngIf="isLoading">
+    <div class="progress progress-modal">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+            style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</ng-container>
+
+<div class="modal-header">
+    <div class="modal-title h4" [innerText]="isEdit ? 'Editar Gateway' : 'Añadir Gateway'">
+    </div>
+</div>
+<div class="modal-body">
+    <form class="form form-label-right" [formGroup]="gatewayForm" novalidate>
+        <div class="row" *ngIf="!isEdit">
+            <div class="form-group col-md-6">
+                <label class="form-label">Número de Serie</label>
+                <input type="text" class="form-control form-control-solid" name="serialNo" [placeholder]="'Número de Serie'"
+                    autocomplete="off" [class.is-invalid]="isControlInvalid('serialNo')"
+                    [class.is-valid]="isControlValid('serialNo')" formControlName="serialNo" [disabled]="(gatewayService.isLoading$ | async)!" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control form-control-solid" name="name" [placeholder]="'Nombre'"
+                    autocomplete="off" [class.is-invalid]="isControlInvalid('name')"
+                    [class.is-valid]="isControlValid('name')" formControlName="name" [disabled]="(gatewayService.isLoading$ | async)!" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label class="form-label">Ip Address</label>
+                <input type="text" class="form-control form-control-solid" name="ipAddress" [placeholder]="'Ip Address'"
+                    autocomplete="off" [class.is-invalid]="isControlInvalid('ipAddress')"
+                    [class.is-valid]="isControlValid('ipAddress')" formControlName="ipAddress" [disabled]="(gatewayService.isLoading$ | async)!" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <div>
+        <ng-container *ngIf="isLoading"><span style="margin-right: 3rem !important;" class="spinner spinner-primary mr-5"></span></ng-container>
+        <button type="button" class="btn btn-light btn-elevate mr-1" (click)="modal.dismiss()" [disabled]="(gatewayService.isLoading$ | async)!">
+            Cancelar
+        </button>&nbsp;
+        <button type="button" class="btn btn-primary btn-elevate" (click)="save()" [disabled]="(gatewayService.isLoading$ | async)!"> 
+            asdasd
+        </button> 
+    </div>
+</div>

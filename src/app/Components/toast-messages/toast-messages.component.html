@@ -1,0 +1,11 @@
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1200">
+    <ngb-toast
+        *ngFor="let m of Service.Messages"
+        [class]="m.classname"
+        [autohide]="true"
+        [delay]="m.delay || 5000"
+        (hidden)="Service.hideMessage(m)"
+    >
+    {{ m.textOrTpl }}
+    </ngb-toast>
+</div>

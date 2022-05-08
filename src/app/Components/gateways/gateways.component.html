@@ -1,0 +1,47 @@
+<div class="table-responsive">
+  <table class="table table-head-custom table-vertical-center overflow-hidden">
+    <thead class="thead-light" >
+      <tr role="row">
+        <th scope="col">Serial No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Ip Address</th>
+        <th>
+          <div class="row justify-content-center">
+            <div class="col-10">
+              <button type="button" class="btn btn-primary" style="margin-right: 5px;" (click)="search()" [disabled]="(gatewayService.isLoading$ | async)!">Buscar</button>
+              <button type="button" class="btn btn-success" (click)="add()" [disabled]="(gatewayService.isLoading$ | async)!">Agregar</button>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let gateway of gatewayService.items$ | async">
+        <tr *ngIf="gateway" role="row">
+          <td>{{gateway.serialNo}}</td>
+          <td>{{gateway.name}}</td>
+          <td>{{gateway.ipAddress}}</td>
+          <td>
+            <div class="row">
+              <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                  <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acciones</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem (click)="showDetails(gateway)" [disabled]="(gatewayService.isLoading$ | async)!">Detalles</button>
+                    <button ngbDropdownItem (click)="edit(gateway)" [disabled]="(gatewayService.isLoading$ | async)!">Editar</button>
+                    <button ngbDropdownItem (click)="delete(gateway.serialNo)" [disabled]="(gatewayService.isLoading$ | async)!">Eliminar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr *ngIf="gateway.showDetails">
+          <td colspan="4">
+            <app-peripherals [serialNo]="gateway.serialNo"></app-peripherals></td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <ngb-pagination [collectionSize]="(gatewayService.Total$ | async)!" [(page)]="CurrentPage" [pageSize]="PageSize" [boundaryLinks]="true"></ngb-pagination>
+</div>
