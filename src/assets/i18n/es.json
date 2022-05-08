@@ -1,0 +1,27 @@
+{
+    "common": {
+        "search": "Buscar",
+        "add": "Agregar",
+        "remove": "Eliminar",
+        "edit": "Editar",
+        "details": "Detalles",
+        "actions": "Acciones",
+        "refresh": "Actualizar",
+        "save": "Guardar",
+        "cancel": "Cancelar"
+    },
+    "gateways":{
+        "serialNo": "No. Serie",
+        "name": "Nombre",
+        "ipAddress": "Dirección Ip",
+        "editGateway": "Editar Gateway",
+        "addGateway": "Añadir Gateway"
+    },
+    "peripherals":{
+        "title": "Peripherals",
+        "uid": "UID",
+        "vendor": "Proveedor",
+        "fabricationDate": "Fecha de Fabricación",
+        "addPeripheral": "Añadir Peripheral al Gateway"
+    }
+}

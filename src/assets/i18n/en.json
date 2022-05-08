@@ -1,0 +1,27 @@
+{
+    "common": {
+        "search": "Search",
+        "add": "Add",
+        "remove": "Remove",
+        "edit": "Edit",
+        "details": "Details",
+        "actions": "Actions",
+        "refresh": "Refresh",
+        "save": "Save",
+        "cancel": "Cancel"
+    },
+    "gateways":{
+        "serialNo": "Serial Number",
+        "name": "Name",
+        "ipAddress": "Ip Address",
+        "editGateway": "Edit Gateway",
+        "addGateway": "Add Gateway"
+    },
+    "peripherals":{
+        "title": "Peripherals",
+        "uid": "UID",
+        "vendor": "Vendor",
+        "fabricationDate": "Fabrication Date",
+        "addPeripheral": "Add Peripheral to Gateway"
+    }
+}

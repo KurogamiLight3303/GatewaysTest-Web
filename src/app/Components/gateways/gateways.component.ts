@@ -4,6 +4,7 @@ import { GatewayModel } from 'src/app/models/gateway.model';
 import { ToastMessagesService } from 'src/app/Services/toast-messages.service';
 import { GatewaysService } from '../../Services/gateways.service';
 import { EditGatewayComponent } from '../edit-gateway/edit-gateway.component';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-gateways',
@@ -28,7 +29,7 @@ export class GatewaysComponent implements OnInit {
     }
   }
 
-  constructor(public gatewayService: GatewaysService, private modalService: NgbModal, private toasService: ToastMessagesService) 
+  constructor(public gatewayService: GatewaysService, private modalService: NgbModal, private toasService: ToastMessagesService, public translate: TranslateService) 
   { 
     this.PageIndex = 0;
     this.PageSize = 10;

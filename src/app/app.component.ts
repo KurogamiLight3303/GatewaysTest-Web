@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GatewaysTest-Web';
+
+  constructor(public translate: TranslateService){
+    var lang = translate.getBrowserLang();
+    if(lang == undefined)
+      lang = 'en';
+    translate.use(lang);
+  }
 }

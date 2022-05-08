@@ -7,31 +7,31 @@
 
 <div class="modal-header">
     <div class="modal-title h4">
-        Añadir Peripheral
+        {{'peripherals.addPeripheral' | translate }}
     </div>
 </div>
 <div class="modal-body">
     <form class="form form-label-right" [formGroup]="peripheralForm" novalidate>
         <div class="row">
             <div class="form-group col-md-6">
-                <label class="form-label">UID</label>
-                <input type="text" class="form-control form-control-solid" name="uid" [placeholder]="'UID'"
+                <label class="form-label">{{'peripherals.uid' | translate }}</label>
+                <input type="text" class="form-control form-control-solid" name="uid" [placeholder]="'peripherals.uid' | translate"
                     autocomplete="off" [class.is-invalid]="isControlInvalid('uid')"
                     [class.is-valid]="isControlValid('uid')" formControlName="uid" [disabled]="(peripheralService.isLoading$ | async)!" />
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label class="form-label">Proveedor</label>
-                <input type="text" class="form-control form-control-solid" name="vendor" [placeholder]="'Proveedor'"
+                <label class="form-label">{{'peripherals.vendor' | translate }}</label>
+                <input type="text" class="form-control form-control-solid" name="vendor" [placeholder]="'peripherals.vendor' | translate "
                     autocomplete="off" [class.is-invalid]="isControlInvalid('vendor')"
                     [class.is-valid]="isControlValid('vendor')" formControlName="vendor" [disabled]="(peripheralService.isLoading$ | async)!" />
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label class="form-label">Fecha de Fabricación</label>
-                <input type="date" class="form-control form-control-solid" name="fabricationDate" [placeholder]="'Fecha de Fabricación'"
+                <label class="form-label">{{'peripherals.fabricationDate' | translate }}</label>
+                <input type="date" class="form-control form-control-solid" name="fabricationDate" [placeholder]="'peripherals.fabricationDate' | translate"
                     autocomplete="off" [class.is-invalid]="isControlInvalid('fabricationDate')"
                     [class.is-valid]="isControlValid('fabricationDate')" formControlName="fabricationDate" [disabled]="(peripheralService.isLoading$ | async)!" />
             </div>
@@ -43,10 +43,10 @@
     <div>
         <ng-container *ngIf="isLoading"><span style="margin-right: 3rem !important;" class="spinner spinner-primary mr-5"></span></ng-container>
         <button type="button" class="btn btn-light btn-elevate mr-1" (click)="modal.dismiss()" [disabled]="(peripheralService.isLoading$ | async)!">
-            Cancelar
+            {{'common.cancel' | translate }}
         </button>&nbsp;
         <button type="button" class="btn btn-primary btn-elevate" (click)="save()" [disabled]="(peripheralService.isLoading$ | async)!"> 
-            asdasd
+            {{'common.save' | translate }}
         </button> 
     </div>
 </div>

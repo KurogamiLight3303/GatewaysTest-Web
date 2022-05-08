@@ -2,6 +2,7 @@ import { Component, OnInit, Input  } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PeripheralService } from 'src/app/Services/peripheral.service';
 import { EndpointService } from '../../Services/endpoint.service';
+import {TranslateService} from "@ngx-translate/core";
 import { EditPeripheralComponent } from '../edit-peripheral/edit-peripheral.component';
 
 @Component({
@@ -13,7 +14,7 @@ export class PeripheralsComponent implements OnInit {
   @Input() serialNo: string = "";
   public peripheralService : PeripheralService;
 
-  constructor(private endpointService: EndpointService, private modalService: NgbModal) {
+  constructor(private endpointService: EndpointService, private modalService: NgbModal, public translate: TranslateService) {
     this.peripheralService = new PeripheralService(endpointService, this.serialNo);
    }
 

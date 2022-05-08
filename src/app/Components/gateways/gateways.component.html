@@ -2,14 +2,14 @@
   <table class="table table-head-custom table-vertical-center overflow-hidden">
     <thead class="thead-light" >
       <tr role="row">
-        <th scope="col">Serial No</th>
-        <th scope="col">Name</th>
-        <th scope="col">Ip Address</th>
+        <th scope="col">{{'gateways.serialNo' | translate }}</th>
+        <th scope="col">{{'gateways.name' | translate }}</th>
+        <th scope="col">{{'gateways.ipAddress' | translate }}</th>
         <th>
           <div class="row justify-content-center">
             <div class="col-10">
-              <button type="button" class="btn btn-primary" style="margin-right: 5px;" (click)="search()" [disabled]="(gatewayService.isLoading$ | async)!">Buscar</button>
-              <button type="button" class="btn btn-success" (click)="add()" [disabled]="(gatewayService.isLoading$ | async)!">Agregar</button>
+              <button type="button" class="btn btn-primary" style="margin-right: 5px;" (click)="search()" [disabled]="(gatewayService.isLoading$ | async)!">{{'common.search' | translate }}</button>
+              <button type="button" class="btn btn-success" (click)="add()" [disabled]="(gatewayService.isLoading$ | async)!">{{'common.add' | translate }}</button>
             </div>
           </div>
         </th>
@@ -25,11 +25,11 @@
             <div class="row">
               <div class="col">
                 <div ngbDropdown class="d-inline-block">
-                  <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Acciones</button>
+                  <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{'common.actions' | translate }}</button>
                   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button ngbDropdownItem (click)="showDetails(gateway)" [disabled]="(gatewayService.isLoading$ | async)!">Detalles</button>
-                    <button ngbDropdownItem (click)="edit(gateway)" [disabled]="(gatewayService.isLoading$ | async)!">Editar</button>
-                    <button ngbDropdownItem (click)="delete(gateway.serialNo)" [disabled]="(gatewayService.isLoading$ | async)!">Eliminar</button>
+                    <button ngbDropdownItem (click)="showDetails(gateway)" [disabled]="(gatewayService.isLoading$ | async)!">{{'common.details' | translate }}</button>
+                    <button ngbDropdownItem (click)="edit(gateway)" [disabled]="(gatewayService.isLoading$ | async)!">{{'common.edit' | translate }}</button>
+                    <button ngbDropdownItem (click)="delete(gateway.serialNo)" [disabled]="(gatewayService.isLoading$ | async)!">{{'common.remove' | translate }}</button>
                   </div>
                 </div>
               </div>

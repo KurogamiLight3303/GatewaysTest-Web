@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { EndpointService } from 'src/app/Services/endpoint.service';
 import { PeripheralService } from 'src/app/Services/peripheral.service';
 import { ToastMessagesService } from 'src/app/Services/toast-messages.service';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-edit-peripheral',
@@ -19,7 +20,13 @@ export class EditPeripheralComponent implements OnInit {
 
   peripheralForm: FormGroup;
 
-  constructor(private fb: FormBuilder, public modal: NgbActiveModal, private endpointService: EndpointService, private toasService: ToastMessagesService) { 
+  constructor(
+    private fb: FormBuilder, 
+    public modal: NgbActiveModal, 
+    private endpointService: EndpointService, 
+    private toasService: ToastMessagesService, 
+    public translate: TranslateService
+    ) { 
     this.peripheralService = new PeripheralService(this.endpointService, this.serialNo);
     this.peripheralForm = this.fb.group({
       uid: ['', Validators.required],

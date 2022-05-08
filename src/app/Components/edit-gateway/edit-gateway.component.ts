@@ -4,6 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { GatewayModel } from 'src/app/models/gateway.model';
 import { GatewaysService } from 'src/app/Services/gateways.service';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-edit-gateway',
@@ -21,7 +22,7 @@ export class EditGatewayComponent implements OnInit {
     return this.SerialNo.length > 0;
   }
 
-  constructor(private fb: FormBuilder, public gatewayService: GatewaysService, public modal: NgbActiveModal) {
+  constructor(private fb: FormBuilder, public gatewayService: GatewaysService, public modal: NgbActiveModal, public translate: TranslateService) {
     this.gatewayForm = this.fb.group({
       name: ['', Validators.required],
       ipAddress: ['', Validators.required],
