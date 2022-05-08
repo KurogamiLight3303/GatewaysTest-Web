@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+      - npm install --legacy-peer-deps
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+      - npm run build -- --configuration=$ENVIRONMENT --base-href=/
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
+  name: GatewaysTestWeb-$(date +%Y-%m-%d)
